@@ -7,12 +7,15 @@ TARGET_CPU=${PDFium_TARGET_CPU:?}
 TARGET_LIBC=${PDFium_TARGET_LIBC:-default}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
 IS_DEBUG=${PDFium_IS_DEBUG:-false}
+IS_COMPLETE_LIB=${PDFium_IS_COMPLETE_LIB:?}
 
 mkdir -p "$BUILD"
 
 (
   echo "is_debug = $IS_DEBUG"
   echo "pdf_is_standalone = true"
+  echo "pdf_is_complete_lib = $IS_COMPLETE_LIB"
+  echo "treat_warnings_as_errors = false"
   echo "target_cpu = \"$TARGET_CPU\""
   echo "target_os = \"$OS\""
   echo "pdf_enable_v8 = $ENABLE_V8"
